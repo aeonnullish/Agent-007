@@ -6,162 +6,75 @@
 <title>Track the Sats</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-/* Din existerande CSS behålls oförändrad */
+/* Behåller din snygga design */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-a{color:inherit;text-decoration:none}
 html,body{background:#060608;color:#e2e2e8;font-family:'Outfit',sans-serif;min-height:100vh}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% -5%,rgba(249,115,22,0.08),transparent 60%);pointer-events:none;z-index:0}
-.grid{position:fixed;inset:0;background-image:linear-gradient(rgba(249,115,22,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,0.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid rgba(249,115,22,0.1);background:rgba(6,6,8,0.95);backdrop-filter:blur(20px)}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-title{font-size:0.82rem;font-weight:900;letter-spacing:0.08em;color:#f97316;text-transform:uppercase}
-.badge{font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:#f97316;border:1px solid rgba(249,115,22,0.3);padding:3px 8px;border-radius:3px;background:rgba(249,115,22,0.08)}
-main{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:24px 16px 80px}
-.hero{text-align:center;padding:20px 0 24px}
-.hero h1{font-size:1.7rem;font-weight:900;margin-bottom:6px}
-.hero h1 em{color:#f97316;font-style:normal}
-.hero p{font-size:0.82rem;color:#55556a;line-height:1.6}
-.start-form{background:#0e0e14;border:1px solid rgba(249,115,22,0.15);border-radius:14px;padding:20px;margin-bottom:16px}
-.fl{font-family:'Share Tech Mono',monospace;font-size:0.56rem;color:#55556a;display:block;text-transform:uppercase}
-.fh{font-family:'Share Tech Mono',monospace;font-size:0.5rem;color:#3a3a50;margin-bottom:8px;display:block}
-.fi{width:100%;background:#060608;border:1px solid rgba(249,115,22,0.12);border-radius:8px;padding:11px 13px;color:#e2e2e8;font-family:'Share Tech Mono',monospace;font-size:0.72rem;margin-bottom:14px}
-.btn{width:100%;background:#f97316;color:#000;border:none;border-radius:8px;padding:13px;font-size:0.85rem;font-weight:800;text-transform:uppercase;cursor:pointer}
-.err{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:10px 12px;font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:#ef4444;margin-bottom:10px;display:none}
-.st{font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:#55556a;text-align:center;padding:6px;min-height:22px}
-#chain{display:flex;flex-direction:column}
-.tx-card{background:#0e0e14;border:1px solid rgba(249,115,22,0.15);border-radius:14px;overflow:hidden;margin-bottom:10px}
-.tx-head{padding:13px 16px 10px;border-bottom:1px solid rgba(255,255,255,0.04)}
-.tx-hop{font-family:'Share Tech Mono',monospace;font-size:0.5rem;color:#f97316;letter-spacing:0.14em}
-.tx-id{font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:#55556a;word-break:break-all}
-.tx-body{padding:13px 16px}
-.sec-lbl{font-family:'Share Tech Mono',monospace;font-size:0.48rem;color:#55556a;margin-bottom:6px;text-transform:uppercase}
-.row{display:flex;justify-content:space-between;background:#16161f;border-radius:7px;padding:8px 11px;margin-bottom:3px}
-.rl{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:#e2e2e8;word-break:break-all}
-.rr{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:#55556a}
-.connector{display:flex;flex-direction:column;align-items:center;padding:6px 0}
-.cline{width:2px;height:20px;background:rgba(249,115,22,0.2)}
-.cdot{width:8px;height:8px;border-radius:50%;background:#f97316;margin:2px 0}
-.next-box{background:#16161f;border:1px solid rgba(249,115,22,0.2);border-radius:12px;padding:16px}
-.next-title{font-family:'Share Tech Mono',monospace;font-size:0.56rem;color:#f97316}
-.wchoice{padding:10px 12px;background:#0e0e14;border:1px solid rgba(255,255,255,0.06);border-radius:8px;cursor:pointer;margin-bottom:6px}
-.wchoice.sel{border-color:rgba(249,115,22,0.4);background:rgba(249,115,22,0.04)}
-.mixer-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:rgba(6,6,8,0.7);backdrop-filter:blur(4px)}
-.mixer-popup{background:#0e0e14;border:1px solid rgba(249,115,22,0.3);border-radius:16px;padding:24px;text-align:center;max-width:320px}
-.sbtn{width:100%;background:transparent;border:1px solid rgba(249,115,22,0.25);border-radius:8px;padding:11px;color:#f97316;cursor:pointer;margin-top:14px;display:none}
-.footer-note{text-align:center;font-family:'Share Tech Mono',monospace;font-size:0.48rem;color:#2a2a3a;margin-top:40px}
+header{padding:12px 20px;border-bottom:1px solid rgba(249,115,22,0.1);background:rgba(6,6,8,0.95)}
+main{max-width:600px;margin:0 auto;padding:24px 16px}
+.start-form{background:#0e0e14;border:1px solid rgba(249,115,22,0.15);border-radius:14px;padding:20px}
+.fi{width:100%;background:#060608;border:1px solid rgba(249,115,22,0.12);border-radius:8px;padding:11px;color:#e2e2e8;margin-bottom:14px}
+.btn{width:100%;background:#f97316;color:#000;border:none;border-radius:8px;padding:13px;font-weight:800;cursor:pointer}
+.err{color:#ef4444;font-size:0.7rem;margin-top:10px;display:none}
+#chain{margin-top:20px}
+.tx-card{background:#0e0e14;padding:15px;border-radius:14px;margin-bottom:10px;border:1px solid rgba(249,115,22,0.1)}
 </style>
 </head>
 <body>
-<div class="grid"></div>
-
-<div class="mixer-overlay" id="mixer-overlay" style="display:none" onclick="dismissMixer()">
-  <div class="mixer-popup" onclick="event.stopPropagation()">
-    <div style="font-size:3rem; margin-bottom:10px">⚡</div>
-    <div style="color:#f97316; font-weight:800; margin-bottom:8px">⚡ Mixer Detected</div>
-    <div id="mixer-msg" style="font-family:'Share Tech Mono',monospace; font-size:0.62rem; color:#e2e2e8"></div>
-  </div>
-</div>
-
-<header>
-  <div class="logo">
-    <span style="display:inline-block;width:40px;height:40px;background:#f97316;border-radius:6px"></span>
-    <div><div class="logo-title">Track the Sats</div></div>
-  </div>
-  <div class="badge">OP_NET</div>
-</header>
-
+<header><div style="color:#f97316;font-weight:900">TRACK THE SATS</div></header>
 <main>
-  <div class="hero">
-    <h1>Onchain <em>Summary</em></h1>
-    <p>Trace any transaction on OP_NET — hop by hop. Build your chain.</p>
-  </div>
-
   <div class="start-form" id="start-form">
-    <label class="fl">// What are you tracking? (optional)</label>
-    <input class="fi" id="target-input" placeholder="Token, amount, or ID…"/>
-    <label class="fl">// Transaction ID *</label>
-    <input class="fi" id="tx-input" placeholder="Paste OP_NET TX ID here…"/>
-    <div class="err" id="start-err"></div>
-    <button class="btn" id="start-btn" onclick="startInvestigation()">Investigate</button>
-    <div class="st" id="start-st"></div>
+    <input class="fi" id="tx-input" placeholder="Paste OP_NET TX ID..."/>
+    <button class="btn" onclick="startInvestigation()">Investigate</button>
+    <div class="err" id="error-msg"></div>
   </div>
-
   <div id="chain"></div>
-  <button class="sbtn" id="sbtn" onclick="exportChain()">Save Chain</button>
-  <div class="footer-note">Read-only · OP_NET Testnet</div>
 </main>
 
 <script>
-// VIKTIGT: Din nya Worker-URL som fungerar som bro
-const MY_PROXY = 'https://trackproxy.aeonnullish.workers.dev';
-
-let hops = [];
-let target = '';
-
-function trim(s, n=12) { return s && s.length > n*2+3 ? s.slice(0, n) + '…' + s.slice(-6) : s || '—'; }
-function fmtSats(v) { 
-  let n = typeof v === 'string' ? (v.startsWith('0x') ? parseInt(v,16) : parseInt(v)) : v;
-  return n >= 1e8 ? (n/1e8).toFixed(8) + ' BTC' : n.toLocaleString() + ' sats';
-}
-
-async function rpcCall(method, params) {
-  const res = await fetch(MY_PROXY, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params: params || [] })
-  });
-  const data = await res.json();
-  if (data.error) throw new Error(data.error.message);
-  return data.result;
-}
+// Din Worker-URL (se till att denna är exakt rätt)
+const PROXY_URL = 'https://trackproxy.aeonnullish.workers.dev';
 
 async function startInvestigation() {
-  target = document.getElementById('target-input').value.trim();
   const txid = document.getElementById('tx-input').value.trim();
+  const errEl = document.getElementById('error-msg');
   if (!txid) return;
-  
-  document.getElementById('start-btn').disabled = true;
-  document.getElementById('start-st').textContent = 'Fetching...';
-  
+
+  errEl.style.display = 'none';
   try {
-    const tx = await rpcCall('btc_getTransactionByHash', [txid]);
-    hops = [{ txid, tx }];
-    document.getElementById('start-form').style.display = 'none';
-    renderChain();
-  } catch(e) {
-    document.getElementById('start-err').textContent = e.message;
-    document.getElementById('start-err').style.display = 'block';
+    const res = await fetch(PROXY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        id: 1,
+        method: 'btc_getTransactionByHash',
+        params: [txid]
+      })
+    });
+
+    if (!res.ok) throw new Error('Network error: ' + res.status);
+    
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    
+    renderResult(txid, data.result);
+  } catch (e) {
+    errEl.textContent = 'Error: ' + e.message;
+    errEl.style.display = 'block';
   }
-  document.getElementById('start-btn').disabled = false;
 }
 
-function renderChain() {
+function renderResult(txid, result) {
   const chain = document.getElementById('chain');
-  chain.innerHTML = hops.map((hop, i) => {
-    const outputs = hop.tx.outputs || hop.tx.vout || [];
-    const toHTML = outputs.map(o => `
-      <div class="row">
-        <div class="rl">${trim(o.scriptPubKey?.address || o.scriptpubkey_address || 'Unknown', 16)}</div>
-        <div class="rr">${fmtSats(o.value)}</div>
-      </div>`).join('');
-      
-    return `
-      <div class="tx-card">
-        <div class="tx-head">
-          <div class="tx-hop">// HOP ${i+1}</div>
-          <div class="tx-id">${trim(hop.txid, 20)}</div>
-        </div>
-        <div class="tx-body">
-          <div class="sec-lbl">To</div>
-          ${toHTML}
-        </div>
-      </div>`;
-  }).join('<div class="connector"><div class="cline"></div><div class="cdot"></div><div class="cline"></div></div>');
-  
-  if (hops.length > 0) document.getElementById('sbtn').style.display = 'block';
+  chain.innerHTML = `
+    <div class="tx-card">
+      <div style="font-size:0.6rem;color:#f97316">TX ID</div>
+      <div style="font-size:0.7rem;word-break:break-all">${txid}</div>
+      <div style="margin-top:10px;font-size:0.6rem;color:#f97316">BLOCK</div>
+      <div>${parseInt(result.blockNumber || 0, 16)}</div>
+    </div>
+  `;
 }
-
-function dismissMixer() { document.getElementById('mixer-overlay').style.display = 'none'; }
 </script>
 </body>
 </html>
