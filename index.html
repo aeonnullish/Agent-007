@@ -192,45 +192,48 @@ function fmtBlock(hex) {
   return '#' + parseInt(hex, 16).toLocaleString();
 }
 
-var PROXY = 'https://corsproxy.io/?https%3A%2F%2Ftestnet.opnet.org';
+var RPC_URL = 'https://testnet.opnet.org';
+var PROXY = 'https://thingproxy.freeboard.io/fetch/';
+
+async function rpcPost(body) {
+  var tries = [
+    async function() {
+      var r = await fetch(RPC_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body:body});
+      if (!r.ok) throw new Error('fail');
+      return await r.json();
+    },
+    async function() {
+      var r = await fetch(PROXY + RPC_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body:body});
+      if (!r.ok) throw new Error('fail');
+      return await r.json();
+    },
+    async function() {
+      var r = await fetch('https://corsproxy.io/?' + encodeURIComponent(RPC_URL), {method:'POST', headers:{'Content-Type':'application/json','x-requested-with':'fetch'}, body:body});
+      if (!r.ok) throw new Error('fail');
+      return await r.json();
+    }
+  ];
+  for (var i = 0; i < tries.length; i++) {
+    try { return await tries[i](); } catch(e) {}
+  }
+  throw new Error('Could not reach OP_NET. Check your connection.');
+}
 
 async function rpc(method, params) {
-  var r = await fetch(PROXY, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({jsonrpc:'2.0', id:1, method: method, params: params || []})
-  });
-  if (!r.ok) throw new Error('RPC error ' + r.status);
-  var d = await r.json();
+  var d = await rpcPost(JSON.stringify({jsonrpc:'2.0', id:1, method:method, params:params||[]}));
   if (d.error) throw new Error(d.error.message || 'RPC error');
   return d.result;
 }
 
 async function getTx(txid) {
-  // Try opscan API first (more data)
-  try {
-    var r = await fetch('https://corsproxy.io/?https%3A%2F%2Fapi.opscan.org%2Fapi%2Ftransactions%2F' + txid);
-    if (r.ok) {
-      var d = await r.json();
-      if (d && d.id) return d;
-    }
-  } catch(e) {}
-
-  // Fallback: direct RPC via fetch
-  var r2 = await fetch(PROXY, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({jsonrpc:'2.0', id:1, method:'btc_getTransactionByHash', params:[txid]})
-  });
-  if (!r2.ok) throw new Error('Could not fetch transaction.');
-  var d2 = await r2.json();
-  if (d2.error) throw new Error('Transaction not found. Check the TX ID.');
-  return d2.result;
+  var d = await rpcPost(JSON.stringify({jsonrpc:'2.0', id:1, method:'btc_getTransactionByHash', params:[txid]}));
+  if (d.error) throw new Error('Transaction not found. Make sure it is an OP_NET testnet TX.');
+  return d.result;
 }
 
 async function getAddrTxs(addr) {
   try {
-    var r = await fetch(PROXY, {
+    var r = await fetch(RPC_URL, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({jsonrpc:'2.0', id:1, method:'btc_getTransactionsByAddress', params:[addr, 10]})
