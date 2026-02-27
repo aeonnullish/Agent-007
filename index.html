@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{background:#060608 !important;color:#e2e2e8 !important;font-family:'Jost',sans-serif;min-height:100vh}
+html,body{background:#060608!important;color:#e2e2e8!important;font-family:'Jost',sans-serif;min-height:100vh}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% -5%,rgba(249,115,22,0.07),transparent 60%);pointer-events:none;z-index:0}
 .grid{position:fixed;inset:0;background-image:linear-gradient(rgba(249,115,22,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,0.025) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
 header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid rgba(249,115,22,0.1);background:rgba(6,6,8,0.92);backdrop-filter:blur(20px)}
@@ -18,89 +18,69 @@ header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-
 .logo-sub{font-size:0.5rem;color:#55556a;letter-spacing:0.2em;text-transform:uppercase;font-family:'Share Tech Mono',monospace}
 .badge{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:#f97316;border:1px solid rgba(249,115,22,0.3);padding:3px 8px;border-radius:3px;background:rgba(249,115,22,0.08)}
 main{position:relative;z-index:1;max-width:580px;margin:0 auto;padding:24px 16px 80px}
-
 .hero{text-align:center;padding:16px 0 20px}
 .hero h1{font-size:1.6rem;font-weight:900;letter-spacing:-0.02em;margin-bottom:6px}
 .hero h1 em{color:#f97316;font-style:normal}
 .hero p{font-size:0.82rem;color:#55556a;line-height:1.6}
-
-/* START FORM */
 .start-form{background:#0e0e14;border:1px solid rgba(249,115,22,0.15);border-radius:14px;padding:20px;margin-bottom:16px}
-.field-label{font-family:‘Share Tech Mono’,monospace;font-size:0.58rem;color:#55556a;letter-spacing:0.1em;margin-bottom:6px;display:block}
-.field-hint{font-family:‘Share Tech Mono’,monospace;font-size:0.52rem;color:#3a3a50;margin-bottom:8px;display:block}
-.field-input{width:100%;background:#060608 !important;border:1px solid rgba(249,115,22,0.12);border-radius:8px;padding:11px 13px;color:#e2e2e8 !important;font-family:‘Share Tech Mono’,monospace;font-size:0.72rem;outline:none;-webkit-appearance:none;margin-bottom:14px}
-.field-input::placeholder{color:#33334a !important}
-.field-input:focus{border-color:rgba(249,115,22,0.35)}
-.field-input.highlight{border-color:rgba(249,115,22,0.4);background:rgba(249,115,22,0.03) !important}
-.btn-primary{width:100%;background:#f97316 !important;color:#000 !important;border:none;border-radius:8px;padding:13px;font-family:‘Jost’,sans-serif;font-size:0.85rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:opacity .15s}
-.btn-primary:disabled{opacity:0.35;cursor:not-allowed}
-.error-box{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:10px 12px;font-family:‘Share Tech Mono’,monospace;font-size:0.65rem;color:#ef4444;margin-bottom:10px;display:none}
-.status{font-family:‘Share Tech Mono’,monospace;font-size:0.6rem;color:#55556a;text-align:center;padding:6px;min-height:22px}
-
-/* CHAIN */
-#chain{display:flex;flex-direction:column;gap:0}
-
-/* TX CARD */
-.tx-card{background:#0e0e14;border:1px solid rgba(249,115,22,0.15);border-radius:14px;overflow:hidden}
-.tx-card-head{padding:13px 16px 10px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.tx-hop-info{flex:1}
-.tx-hop{font-family:‘Share Tech Mono’,monospace;font-size:0.52rem;color:#f97316;letter-spacing:0.12em;margin-bottom:3px}
-.tx-id{font-family:‘Share Tech Mono’,monospace;font-size:0.58rem;color:#55556a;word-break:break-all;line-height:1.5}
-.tx-time{font-family:‘Share Tech Mono’,monospace;font-size:0.55rem;color:#3a3a50;margin-top:3px}
-
+.fl{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:#55556a;letter-spacing:0.1em;margin-bottom:4px;display:block}
+.fh{font-family:'Share Tech Mono',monospace;font-size:0.5rem;color:#3a3a50;margin-bottom:8px;display:block}
+.fi{width:100%;background:#060608!important;border:1px solid rgba(249,115,22,0.12);border-radius:8px;padding:11px 13px;color:#e2e2e8!important;font-family:'Share Tech Mono',monospace;font-size:0.72rem;outline:none;-webkit-appearance:none;margin-bottom:14px}
+.fi::placeholder{color:#33334a!important}
+.fi:focus{border-color:rgba(249,115,22,0.35)}
+.fi.hl{border-color:rgba(249,115,22,0.4)}
+.btn{width:100%;background:#f97316!important;color:#000!important;border:none;border-radius:8px;padding:13px;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer}
+.btn:disabled{opacity:0.35;cursor:not-allowed}
+.err{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:10px 12px;font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:#ef4444;margin-bottom:10px;display:none}
+.st{font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:#55556a;text-align:center;padding:6px;min-height:22px}
+#chain{display:flex;flex-direction:column}
+.tx-card{background:#0e0e14;border:1px solid rgba(249,115,22,0.15);border-radius:14px;overflow:hidden;margin-bottom:0}
+.tx-head{padding:13px 16px 10px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.tx-hop{font-family:'Share Tech Mono',monospace;font-size:0.52rem;color:#f97316;letter-spacing:0.12em;margin-bottom:3px}
+.tx-id{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:#55556a;word-break:break-all;line-height:1.5}
+.tx-time{font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:#3a3a50;margin-top:3px}
 .tx-body{padding:13px 16px}
-.tx-section{margin-bottom:10px}
-.tx-section-label{font-family:‘Share Tech Mono’,monospace;font-size:0.5rem;color:#55556a;letter-spacing:0.1em;margin-bottom:5px;text-transform:uppercase}
-.tx-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:8px 11px;background:#16161f;border-radius:7px;margin-bottom:3px;cursor:default}
-.tx-row.match{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.25)}
-.tx-row-left{font-family:‘Share Tech Mono’,monospace;font-size:0.6rem;color:#e2e2e8;word-break:break-all;flex:1;line-height:1.5}
-.tx-row-right{font-family:‘Share Tech Mono’,monospace;font-size:0.6rem;color:#55556a;text-align:right;white-space:nowrap;flex-shrink:0}
-.match-label{font-family:‘Share Tech Mono’,monospace;font-size:0.5rem;color:#f97316;letter-spacing:0.08em;margin-bottom:2px}
-
-.tag{display:inline-block;font-family:‘Share Tech Mono’,monospace;font-size:0.48rem;padding:2px 5px;border-radius:3px;margin-right:4px}
-.tag.ordinal{background:rgba(249,115,22,0.15);color:#f97316;border:1px solid rgba(249,115,22,0.3)}
-.tag.btc{background:rgba(255,255,255,0.04);color:#55556a;border:1px solid rgba(255,255,255,0.08)}
-.tag.fee{background:rgba(239,68,68,0.08);color:#ef4444;border:1px solid rgba(239,68,68,0.15)}
-.tag.change{background:rgba(255,255,255,0.03);color:#3a3a50;border:1px solid rgba(255,255,255,0.05)}
-
-/* ARROW + ADD */
-.chain-connector{display:flex;flex-direction:column;align-items:center;padding:6px 0}
-.chain-line{width:2px;height:20px;background:rgba(249,115,22,0.2)}
-.chain-dot{width:8px;height:8px;border-radius:50%;background:#f97316;margin:2px 0}
-
-/* NEXT HOP POPUP */
-.next-hop-box{background:#16161f;border:1px solid rgba(249,115,22,0.2);border-radius:12px;padding:16px;margin-top:0}
-.next-hop-title{font-family:‘Share Tech Mono’,monospace;font-size:0.58rem;color:#f97316;letter-spacing:0.08em;margin-bottom:4px}
-.next-hop-sub{font-family:‘Share Tech Mono’,monospace;font-size:0.52rem;color:#55556a;margin-bottom:12px;line-height:1.5}
-.wallet-choices{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-.wallet-choice{padding:10px 12px;background:#0e0e14;border:1px solid rgba(255,255,255,0.06);border-radius:8px;cursor:pointer;transition:border-color .15s}
-.wallet-choice:hover,.wallet-choice.selected{border-color:rgba(249,115,22,0.35);background:rgba(249,115,22,0.04)}
-.wallet-choice-label{font-family:‘Share Tech Mono’,monospace;font-size:0.52rem;color:#55556a;letter-spacing:0.08em;margin-bottom:2px}
-.wallet-choice-addr{font-family:‘Share Tech Mono’,monospace;font-size:0.65rem;color:#e2e2e8;word-break:break-all}
-.divider{border:none;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
-.next-tx-input{width:100%;background:#060608 !important;border:1px solid rgba(249,115,22,0.12);border-radius:8px;padding:10px 12px;color:#e2e2e8 !important;font-family:‘Share Tech Mono’,monospace;font-size:0.7rem;outline:none;-webkit-appearance:none;margin-bottom:8px}
-.next-tx-input::placeholder{color:#33334a !important}
-.next-tx-input:focus{border-color:rgba(249,115,22,0.35)}
-.btn-add{width:100%;background:#f97316 !important;color:#000 !important;border:none;border-radius:8px;padding:11px;font-family:‘Jost’,sans-serif;font-size:0.8rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer}
-.btn-add:disabled{opacity:0.35;cursor:not-allowed}
-
-/* SUMMARY */
-.summary-btn{width:100%;background:transparent;border:1px solid rgba(249,115,22,0.25);border-radius:8px;padding:11px;font-family:‘Jost’,sans-serif;font-size:0.78rem;font-weight:700;color:#f97316;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-top:14px;display:none}
-
-.footer-note{text-align:center;font-family:‘Share Tech Mono’,monospace;font-size:0.5rem;color:#2a2a3a;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.03)}
-
+.sec-lbl{font-family:'Share Tech Mono',monospace;font-size:0.5rem;color:#55556a;letter-spacing:0.1em;margin-bottom:5px;text-transform:uppercase}
+.row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:8px 11px;background:#16161f;border-radius:7px;margin-bottom:3px}
+.row.match{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.25)}
+.rl{font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:#e2e2e8;word-break:break-all;flex:1;line-height:1.5}
+.rr{font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:#55556a;text-align:right;white-space:nowrap;flex-shrink:0}
+.tag{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:0.48rem;padding:2px 5px;border-radius:3px;margin-right:4px}
+.tag.o{background:rgba(249,115,22,0.15);color:#f97316;border:1px solid rgba(249,115,22,0.3)}
+.tag.b{background:rgba(255,255,255,0.04);color:#55556a;border:1px solid rgba(255,255,255,0.08)}
+.tag.f{background:rgba(239,68,68,0.08);color:#ef4444;border:1px solid rgba(239,68,68,0.15)}
+.tag.c{background:rgba(255,255,255,0.03);color:#3a3a50;border:1px solid rgba(255,255,255,0.05)}
+.connector{display:flex;flex-direction:column;align-items:center;padding:6px 0}
+.cline{width:2px;height:20px;background:rgba(249,115,22,0.2)}
+.cdot{width:8px;height:8px;border-radius:50%;background:#f97316;margin:2px 0}
+.next-box{background:#16161f;border:1px solid rgba(249,115,22,0.2);border-radius:12px;padding:16px}
+.next-title{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:#f97316;letter-spacing:0.08em;margin-bottom:4px}
+.next-sub{font-family:'Share Tech Mono',monospace;font-size:0.52rem;color:#55556a;margin-bottom:12px;line-height:1.5}
+.wchoice{padding:10px 12px;background:#0e0e14;border:1px solid rgba(255,255,255,0.06);border-radius:8px;cursor:pointer;margin-bottom:6px;transition:border-color .15s}
+.wchoice:hover,.wchoice.sel{border-color:rgba(249,115,22,0.35);background:rgba(249,115,22,0.04)}
+.wlbl{font-family:'Share Tech Mono',monospace;font-size:0.52rem;color:#55556a;letter-spacing:0.08em;margin-bottom:2px}
+.waddr{font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:#e2e2e8;word-break:break-all}
+.divider{border:none;border-top:1px solid rgba(255,255,255,0.04);margin:12px 0}
+.tx-suggestion{padding:10px 12px;background:#0e0e14;border:1px solid rgba(255,255,255,0.06);border-radius:8px;cursor:pointer;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tx-suggestion:hover{border-color:rgba(249,115,22,0.3);background:rgba(249,115,22,0.03)}
+.ts-left{flex:1}
+.ts-date{font-family:'Share Tech Mono',monospace;font-size:0.5rem;color:#55556a;margin-bottom:2px}
+.ts-txid{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:#e2e2e8;word-break:break-all}
+.ts-info{font-family:'Share Tech Mono',monospace;font-size:0.5rem;color:#55556a;margin-top:2px}
+.ts-arr{color:#f97316;font-size:0.8rem;flex-shrink:0}
 .mixer-card{background:#0e0e14;border:1px solid rgba(249,115,22,0.3);border-radius:14px;padding:20px;text-align:center}
-.mixer-title{font-family:‘Jost’,sans-serif;font-size:1rem;font-weight:800;color:#f97316;margin-bottom:8px}
-.mixer-msg{font-family:‘Share Tech Mono’,monospace;font-size:0.65rem;color:#e2e2e8;margin-bottom:6px;line-height:1.6}
-.mixer-sub{font-family:‘Share Tech Mono’,monospace;font-size:0.55rem;color:#55556a;line-height:1.5}
+.mixer-title{font-size:1rem;font-weight:800;color:#f97316;margin-bottom:8px}
+.mixer-msg{font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:#e2e2e8;margin-bottom:6px;line-height:1.6}
+.mixer-sub{font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:#55556a;line-height:1.5;margin-bottom:12px}
+.sbtn{width:100%;background:transparent;border:1px solid rgba(249,115,22,0.25);border-radius:8px;padding:11px;font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:700;color:#f97316;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-top:14px;display:none}
+.footer-note{text-align:center;font-family:'Share Tech Mono',monospace;font-size:0.5rem;color:#2a2a3a;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.03)}
 </style>
-
 </head>
 <body>
 <div class="grid"></div>
 <header>
   <div class="logo">
-    <img id="bird" src="Normal%20redi.png" alt="Nodebird"/>
+    <img id="bird" src="Normal redi.png" alt="Nodebird"/>
     <div>
       <div class="logo-title">Orditrack</div>
       <div class="logo-sub">Powered by Nodebirds</div>
@@ -108,322 +88,344 @@ main{position:relative;z-index:1;max-width:580px;margin:0 auto;padding:24px 16px
   </div>
   <div class="badge">MAINNET</div>
 </header>
-
 <main>
   <div class="hero">
     <h1>Follow the <em>Trail</em></h1>
     <p>Track where an Ordinal, token, or BTC went — hop by hop.</p>
   </div>
-
-  <!-- START FORM -->
-
   <div class="start-form" id="start-form">
-    <label class="field-label">// WHAT ARE YOU LOOKING FOR? <span style="color:#3a3a50">(optional but recommended)</span></label>
-    <span class="field-hint">e.g. inscription ID abc123…i0 · "200 DOG" · "0.06 BTC"</span>
-    <input class="field-input" id="target-input" placeholder="Inscription ID, token amount, or BTC…" autocomplete="off" spellcheck="false"/>
-
-```
-<label class="field-label">// TRANSACTION ID <span style="color:#ef4444">*</span></label>
-<input class="field-input highlight" id="tx-input" placeholder="Paste TX ID here…" autocomplete="off" spellcheck="false"/>
-
-<div class="error-box" id="start-error"></div>
-<button class="btn-primary" id="start-btn" onclick="startInvestigation()">Investigate</button>
-<div class="status" id="start-status"></div>
-```
-
+    <label class="fl">// WHAT ARE YOU LOOKING FOR? <span style="color:#3a3a50">(optional)</span></label>
+    <span class="fh">e.g. inscription ID, "200 DOG", "0.06 BTC"</span>
+    <input class="fi" id="target-input" placeholder="Inscription ID, token amount, or BTC…" autocomplete="off" spellcheck="false"/>
+    <label class="fl">// TRANSACTION ID <span style="color:#ef4444">*</span></label>
+    <input class="fi hl" id="tx-input" placeholder="Paste TX ID here…" autocomplete="off" spellcheck="false"/>
+    <div class="err" id="start-err"></div>
+    <button class="btn" id="start-btn" onclick="startInvestigation()">Investigate</button>
+    <div class="st" id="start-st"></div>
   </div>
-
   <div id="chain"></div>
-  <button class="summary-btn" id="summary-btn" onclick="exportTrail()">Export Full Trail</button>
-
+  <button class="sbtn" id="sbtn" onclick="exportTrail()">Export Full Trail</button>
   <div class="footer-note">Read-only · Public blockchain data · No wallet required<br>Powered by N O D E B I R D S</div>
 </main>
-
 <script>
-const ORDISCAN_KEY = '5007b461-c686-4722-bfeb-9db0ef487d54';
+const OK = '5007b461-c686-4722-bfeb-9db0ef487d54';
 let hops = [];
-let target = ''; // what the user is looking for
+let target = '';
 
-function bird(s){ const b=document.getElementById('bird'); if(b) b.src = s==='search'?'Detective.png':'Normal%20redi.png'; }
-function trim(s,n=10){ if(!s)return'—'; if(s.length<=n*2+3)return s; return s.slice(0,n)+'…'+s.slice(-6); }
-function formatDate(unix){ if(!unix)return'—'; return new Date(unix*1000).toISOString().replace('T',' ').slice(0,16)+' UTC'; }
-function btc(sats){ return (sats/1e8).toFixed(8)+' BTC'; }
-
-async function fetchTx(txid){
-  const r = await fetch(`https://blockstream.info/api/tx/${txid}`);
-  if(!r.ok) throw new Error('Transaction not found. Check the TX ID.');
-  return r.json();
+function bird(s) {
+var b = document.getElementById(‘bird’);
+if (b) b.src = s === ‘search’ ? ‘Detective.png’ : ‘Normal redi.png’;
 }
 
-async function fetchOrdiscanTx(txid){
-  try{
-    const r = await fetch(`https://api.ordiscan.com/v1/tx/${txid}/inscriptions`,{headers:{'Authorization':'Bearer '+ORDISCAN_KEY}});
-    if(!r.ok) return [];
-    const d = await r.json();
-    return d.data||[];
-  }catch(e){ return []; }
+function trim(s, n) {
+n = n || 10;
+if (!s) return ‘—’;
+if (s.length <= n * 2 + 3) return s;
+return s.slice(0, n) + ‘…’ + s.slice(-6);
 }
 
-function isMatch(output, inscriptions, idx){
-  if(!target) return false;
-  const t = target.toLowerCase();
-  // Check inscription match
-  const insc = inscriptions.find(i => i.owner_output?.endsWith(':'+idx) || i.genesis_output?.endsWith(':'+idx));
-  if(insc){
-    if(t.includes(String(insc.inscription_number))) return true;
-    if(t.includes(insc.inscription_id?.toLowerCase().slice(0,10))) return true;
-    if(t.includes('inscription') || t.includes('ordinal')) return true;
-  }
-  // Check BTC amount match
-  const btcAmt = (output.value/1e8).toFixed(8);
-  if(t.includes(btcAmt.replace(/0+$/,'').replace(/\.$/,''))) return true;
-  return false;
+function fmtDate(unix) {
+if (!unix) return ‘unconfirmed’;
+return new Date(unix * 1000).toISOString().replace(‘T’, ’ ‘).slice(0, 16) + ’ UTC’;
 }
 
-async function startInvestigation(){
-  target = document.getElementById('target-input').value.trim();
-  const txid = document.getElementById('tx-input').value.trim();
-  const errEl = document.getElementById('start-error');
-  errEl.style.display='none';
-  if(!txid){ errEl.textContent='Paste a Transaction ID first.'; errEl.style.display='block'; return; }
-  document.getElementById('start-btn').disabled=true;
-  document.getElementById('start-status').textContent='Loading transaction…';
-  bird('search');
-  try{
-    const [tx, inscriptions] = await Promise.all([fetchTx(txid), fetchOrdiscanTx(txid)]);
-    hops = [{txid, tx, inscriptions}];
-    document.getElementById('start-form').style.display='none';
-    renderChain();
-  }catch(e){
-    errEl.textContent=e.message; errEl.style.display='block';
-  }
-  document.getElementById('start-btn').disabled=false;
-  document.getElementById('start-status').textContent='';
-  bird('normal');
+function fmtBtc(sats) {
+return (sats / 1e8).toFixed(8) + ’ BTC’;
 }
 
-function renderChain(){
-  const chain = document.getElementById('chain');
-  chain.innerHTML='';
-
-  hops.forEach((hop,i)=>{
-    const {txid,tx,inscriptions} = hop;
-    const senders = [...new Set(tx.vin.map(v=>v.prevout?.scriptpubkey_address).filter(Boolean))];
-
-    const outputs = tx.vout.map((o,idx)=>{
-      const addr = o.scriptpubkey_address||null;
-      const insc = inscriptions.find(ins=>ins.owner_output?.endsWith(':'+idx)||ins.genesis_output?.endsWith(':'+idx));
-      const isOpReturn = o.scriptpubkey_type==='op_return';
-      const isChange = addr && senders.includes(addr) && !insc;
-      const matched = isMatch(o, inscriptions, idx);
-      return {addr,value:o.value,insc,isOpReturn,isChange,matched,idx};
-    });
-
-    // Build FROM rows
-    const fromHTML = senders.map(s=>`
-      <div class="tx-row">
-        <div class="tx-row-left">${trim(s,14)}</div>
-      </div>`).join('');
-
-    // Build TO rows
-    const toHTML = outputs.filter(o=>!o.isOpReturn).map(o=>{
-      let tags='';
-      if(o.insc) tags+=`<span class="tag ordinal">ORDINAL #${o.insc.inscription_number}</span>`;
-      else if(o.isChange) tags+=`<span class="tag change">CHANGE</span>`;
-      else tags+=`<span class="tag btc">BTC</span>`;
-      const matchedLabel = o.matched ? `<div class="match-label">★ MATCHES YOUR TARGET</div>` : '';
-      return `<div class="tx-row${o.matched?' match':''}">
-        <div class="tx-row-left">${matchedLabel}${tags}<br>${o.addr?trim(o.addr,14):'Unknown'}</div>
-        <div class="tx-row-right">${btc(o.value)}</div>
-      </div>`;
-    }).join('');
-
-    const feeHTML = tx.fee ? `<div class="tx-row"><div class="tx-row-left"><span class="tag fee">FEE</span><br>Miner</div><div class="tx-row-right">${btc(tx.fee)}</div></div>` : '';
-
-    chain.insertAdjacentHTML('beforeend',`
-      <div class="tx-card" id="card-${i}">
-        <div class="tx-card-head">
-          <div class="tx-hop-info">
-            <div class="tx-hop">// HOP ${i+1}${target?' · TRACKING: '+trim(target,16):''}</div>
-            <div class="tx-id">${txid}</div>
-            <div class="tx-time">${formatDate(tx.status?.block_time)}</div>
-          </div>
-        </div>
-        <div class="tx-body">
-          <div class="tx-section">
-            <div class="tx-section-label">FROM</div>
-            ${fromHTML}
-          </div>
-          <div class="tx-section">
-            <div class="tx-section-label">TO</div>
-            ${toHTML}${feeHTML}
-          </div>
-        </div>
-      </div>`);
-
-    // Check for mixer
-    const mixerWarning = isMixer(tx);
-
-    // Add next hop connector
-    if(i === hops.length-1 && hops.length < 10){
-      if(mixerWarning){ showMixer(mixerWarning, i); } else {
-      // Build wallet options for "who to follow"
-      const receivers = [...new Set(outputs.filter(o=>!o.isOpReturn&&o.addr&&!o.isChange).map(o=>o.addr))];
-      const walletOpts = [
-        ...senders.map(a=>({addr:a,role:'Sender'})),
-        ...receivers.map(a=>({addr:a,role:'Receiver'}))
-      ].filter((v,i,a)=>a.findIndex(x=>x.addr===v.addr)===i);
-
-      const walletChoicesHTML = walletOpts.map((w,wi)=>`
-        <div class="wallet-choice" id="wc-${i}-${wi}" onclick="selectWallet(${i},${wi},'${w.addr}')">
-          <div class="wallet-choice-label">${w.role}</div>
-          <div class="wallet-choice-addr">${trim(w.addr,16)}</div>
-        </div>`).join('');
-
-      chain.insertAdjacentHTML('beforeend',`
-        <div class="chain-connector"><div class="chain-line"></div><div class="chain-dot"></div><div class="chain-line"></div></div>
-        <div class="next-hop-box" id="next-${i}">
-          <div class="next-hop-title">+ FOLLOW THE TRAIL</div>
-          <div class="next-hop-sub">Which wallet do you want to follow?</div>
-          <div class="wallet-choices" id="wcs-${i}">${walletChoicesHTML}</div>
-          <hr class="divider"/>
-          <div class="field-label" style="font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:#55556a;letter-spacing:0.08em;margin-bottom:6px">PASTE NEXT TRANSACTION ID</div>
-          <input class="next-tx-input" id="next-input-${i}" placeholder="Next TX ID…" autocomplete="off" spellcheck="false"/>
-          <div class="error-box" id="next-error-${i}"></div>
-          <button class="btn-add" id="next-btn-${i}" onclick="addNextHop(${i})">Add Next Hop</button>
-        </div>`);
-      }
-    }
-  });
-
-  if(hops.length>1) document.getElementById('summary-btn').style.display='block';
+async function getTx(txid) {
+var r = await fetch(‘https://blockstream.info/api/tx/’ + txid);
+if (!r.ok) throw new Error(‘Transaction not found. Check the TX ID.’);
+return r.json();
 }
 
-function selectWallet(hopIdx, walletIdx, addr){
-  // Highlight selected wallet
-  document.querySelectorAll(`[id^="wc-${hopIdx}-"]`).forEach(el=>el.classList.remove('selected'));
-  document.getElementById(`wc-${hopIdx}-${walletIdx}`)?.classList.add('selected');
-  // Pre-fill hint
-  const inp = document.getElementById(`next-input-${hopIdx}`);
-  if(inp) inp.placeholder = `Paste TX ID from wallet ${trim(addr,12)}…`;
+async function getAddrTxs(addr) {
+try {
+var r = await fetch(‘https://blockstream.info/api/address/’ + addr + ‘/txs’);
+if (!r.ok) return [];
+return r.json();
+} catch (e) { return []; }
 }
 
-async function addNextHop(i){
-  const txid = document.getElementById(`next-input-${i}`)?.value?.trim();
-  const errEl = document.getElementById(`next-error-${i}`);
-  const btn = document.getElementById(`next-btn-${i}`);
-  if(!txid){ if(errEl){errEl.textContent='Paste a TX ID first.';errEl.style.display='block';} return; }
-  if(errEl) errEl.style.display='none';
-  if(btn) btn.disabled=true;
-  bird('search');
-  try{
-    const [tx,inscriptions] = await Promise.all([fetchTx(txid),fetchOrdiscanTx(txid)]);
-    hops.push({txid,tx,inscriptions});
-    renderChain();
-    // Scroll to new card
-    setTimeout(()=>{ const last=document.getElementById(`card-${hops.length-1}`); if(last) last.scrollIntoView({behavior:'smooth',block:'start'}); },100);
-  }catch(e){
-    if(errEl){errEl.textContent=e.message;errEl.style.display='block';}
-    if(btn) btn.disabled=false;
-  }
-  bird('normal');
+async function getOrdiscan(txid) {
+try {
+var r = await fetch(‘https://api.ordiscan.com/v1/tx/’ + txid + ‘/inscriptions’, {
+headers: { ‘Authorization’: ’Bearer ’ + OK }
+});
+if (!r.ok) return [];
+var d = await r.json();
+return d.data || [];
+} catch (e) { return []; }
 }
-
-
-// Known mixer addresses and patterns
-const KNOWN_MIXERS = [
-  'bc1qs604c7jv6amk4cxqlnvuxv26hv3e48cds4m0wd', // Wasabi coordinator
-  '3NbdrezMzAVVfXv5MTQJn4hWqKhYCTCJoB', // JoinMarket
-  'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh', // known mixer
-];
 
 function isMixer(tx) {
-  // Known address check
-  const allAddrs = [
-    ...tx.vin.map(v => v.prevout?.scriptpubkey_address),
-    ...tx.vout.map(o => o.scriptpubkey_address)
-  ].filter(Boolean);
-  
-  for (const addr of allAddrs) {
-    if (KNOWN_MIXERS.includes(addr)) return 'Known mixer address detected.';
-  }
-  
-  // Heuristic: many inputs + many equal outputs = likely mixing
-  const inputs = tx.vin.length;
-  const outputs = tx.vout.filter(o => o.scriptpubkey_type !== 'op_return');
-  if (inputs >= 5 && outputs.length >= 5) {
-    const amounts = outputs.map(o => o.value);
-    const uniqueAmounts = new Set(amounts);
-    if (uniqueAmounts.size <= 2) return 'Suspicious: many inputs and equal outputs — possible CoinJoin or mixer.';
-  }
-  if (inputs >= 10) return 'Suspicious: unusually high number of inputs — possible mixer.';
-  
-  return null;
+var ins = tx.vin.length;
+var outs = tx.vout.filter(function(o) { return o.scriptpubkey_type !== ‘op_return’; });
+if (ins >= 5 && outs.length >= 5) {
+var amounts = outs.map(function(o) { return o.value; });
+var unique = amounts.filter(function(v, i, a) { return a.indexOf(v) === i; });
+if (unique.length <= 2) return ‘Many inputs with equal outputs — possible CoinJoin or mixer.’;
+}
+if (ins >= 10) return ‘Unusually high number of inputs — possible mixer.’;
+return null;
 }
 
-function showMixer(message, hopIdx) {
-  const chain = document.getElementById('chain');
-  chain.insertAdjacentHTML('beforeend', `
-    <div class="chain-connector"><div class="chain-line"></div><div class="chain-dot"></div><div class="chain-line"></div></div>
-    <div class="mixer-card" id="mixer-card">
-      <img id="electric-bird" src="Electric%20normal.png" style="width:80px;height:80px;image-rendering:pixelated;display:block;margin:0 auto 12px"/>
-      <div class="mixer-title">⚡ Trail went cold</div>
-      <div class="mixer-msg">${message}</div>
-      <div class="mixer-sub">The trail may be untraceable from here. You can still try to add the next TX ID manually.</div>
-      <input class="next-tx-input" id="mixer-input" placeholder="Try next TX ID anyway…" autocomplete="off" spellcheck="false" style="margin-top:12px"/>
-      <div class="error-box" id="mixer-error"></div>
-      <button class="btn-add" onclick="addMixerHop()" style="margin-top:8px">Try Anyway</button>
-    </div>`);
-  // Animate electric bird — slow pulse
-  const eb = document.getElementById('electric-bird');
-  if(eb){
-    setInterval(()=>{ 
-      eb.src='Electric%20expand.png'; 
-      setTimeout(()=>{ if(document.getElementById('electric-bird')) document.getElementById('electric-bird').src='Electric%20normal.png'; },800);
-    }, 3000);
-  }
+function matchesTarget(o, inscriptions, idx) {
+if (!target) return false;
+var t = target.toLowerCase();
+var insc = inscriptions.find(function(i) {
+return (i.owner_output && i.owner_output.endsWith(’:’ + idx)) ||
+(i.genesis_output && i.genesis_output.endsWith(’:’ + idx));
+});
+if (insc) {
+if (t.indexOf(String(insc.inscription_number)) >= 0) return true;
+if (t.indexOf(‘inscription’) >= 0 || t.indexOf(‘ordinal’) >= 0) return true;
+if (insc.inscription_id && t.indexOf(insc.inscription_id.toLowerCase().slice(0, 10)) >= 0) return true;
+}
+var btcStr = (o.value / 1e8).toFixed(8).replace(/0+$/, ‘’).replace(/.$/, ‘’);
+if (btcStr && t.indexOf(btcStr) >= 0) return true;
+return false;
 }
 
-async function addMixerHop(){
-  const txid = document.getElementById('mixer-input')?.value?.trim();
-  const errEl = document.getElementById('mixer-error');
-  if(!txid){ if(errEl){errEl.textContent='Paste a TX ID.';errEl.style.display='block';} return; }
-  if(errEl) errEl.style.display='none';
-  document.getElementById('mixer-card')?.remove();
-  bird('search');
-  try{
-    const [tx,inscriptions] = await Promise.all([fetchTx(txid),fetchOrdiscanTx(txid)]);
-    hops.push({txid,tx,inscriptions});
-    renderChain();
-  }catch(e){
-    if(errEl){errEl.textContent=e.message;errEl.style.display='block';}
-  }
-  bird('normal');
-}
+function renderChain() {
+var chain = document.getElementById(‘chain’);
+chain.innerHTML = ‘’;
 
-function exportTrail(){
-  let txt='ORDITRACK — TRAIL SUMMARY\n';
-  if(target) txt+=`Looking for: ${target}\n`;
-  txt+='\n';
-  hops.forEach((hop,i)=>{
-    const {txid,tx,inscriptions}=hop;
-    const senders=[...new Set(tx.vin.map(v=>v.prevout?.scriptpubkey_address).filter(Boolean))];
-    txt+=`HOP ${i+1}\nTX: ${txid}\nTime: ${formatDate(tx.status?.block_time)}\nFrom: ${senders.join(', ')}\n`;
-    tx.vout.forEach((o,idx)=>{
-      if(o.scriptpubkey_type==='op_return')return;
-      const insc=inscriptions.find(ins=>ins.owner_output?.endsWith(':'+idx)||ins.genesis_output?.endsWith(':'+idx));
-      txt+=`  → ${o.scriptpubkey_address||'Unknown'}: ${btc(o.value)}${insc?' [ORDINAL #'+insc.inscription_number+']':''}\n`;
-    });
-    if(tx.fee) txt+=`Fee: ${btc(tx.fee)}\n`;
-    txt+='\n';
+hops.forEach(function(hop, i) {
+var tx = hop.tx;
+var inscriptions = hop.inscriptions;
+var senders = tx.vin.map(function(v) { return v.prevout && v.prevout.scriptpubkey_address; }).filter(function(a, i, arr) { return a && arr.indexOf(a) === i; });
+
+```
+var fromHTML = senders.map(function(s) {
+  return '<div class="row"><div class="rl">' + trim(s, 14) + '</div></div>';
+}).join('');
+
+var toHTML = tx.vout.filter(function(o) { return o.scriptpubkey_type !== 'op_return'; }).map(function(o, idx) {
+  var addr = o.scriptpubkey_address || 'Unknown';
+  var insc = inscriptions.find(function(ins) {
+    return (ins.owner_output && ins.owner_output.endsWith(':' + idx)) ||
+           (ins.genesis_output && ins.genesis_output.endsWith(':' + idx));
   });
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([txt],{type:'text/plain'}));
-  a.download='orditrack-trail.txt';
-  a.click();
+  var isChange = senders.indexOf(addr) >= 0 && !insc;
+  var matched = matchesTarget(o, inscriptions, idx);
+  var tags = '';
+  if (insc) tags = '<span class="tag o">ORDINAL #' + insc.inscription_number + '</span>';
+  else if (isChange) tags = '<span class="tag c">CHANGE</span>';
+  else tags = '<span class="tag b">BTC</span>';
+  var matchLbl = matched ? '<div style="font-family:\'Share Tech Mono\',monospace;font-size:0.5rem;color:#f97316;margin-bottom:2px">★ MATCHES TARGET</div>' : '';
+  return '<div class="row' + (matched ? ' match' : '') + '"><div class="rl">' + matchLbl + tags + '<br>' + trim(addr, 14) + '</div><div class="rr">' + fmtBtc(o.value) + '</div></div>';
+}).join('');
+
+var feeHTML = tx.fee ? '<div class="row"><div class="rl"><span class="tag f">FEE</span><br>Miner</div><div class="rr">' + fmtBtc(tx.fee) + '</div></div>' : '';
+
+chain.insertAdjacentHTML('beforeend',
+  '<div class="tx-card" id="card-' + i + '">' +
+    '<div class="tx-head">' +
+      '<div class="tx-hop">// HOP ' + (i + 1) + (target ? ' · TRACKING: ' + trim(target, 16) : '') + '</div>' +
+      '<div class="tx-id">' + hop.txid + '</div>' +
+      '<div class="tx-time">' + fmtDate(tx.status && tx.status.block_time) + '</div>' +
+    '</div>' +
+    '<div class="tx-body">' +
+      '<div style="margin-bottom:10px"><div class="sec-lbl">FROM</div>' + fromHTML + '</div>' +
+      '<div><div class="sec-lbl">TO</div>' + toHTML + feeHTML + '</div>' +
+    '</div>' +
+  '</div>'
+);
+
+if (i === hops.length - 1 && hops.length < 10) {
+  var mixerWarning = isMixer(tx);
+  if (mixerWarning) {
+    chain.insertAdjacentHTML('beforeend',
+      '<div class="connector"><div class="cline"></div><div class="cdot"></div><div class="cline"></div></div>' +
+      '<div class="mixer-card">' +
+        '<img id="eb" src="Electric normal.png" style="width:80px;height:80px;image-rendering:pixelated;display:block;margin:0 auto 12px"/>' +
+        '<div class="mixer-title">⚡ Trail went cold</div>' +
+        '<div class="mixer-msg">' + mixerWarning + '</div>' +
+        '<div class="mixer-sub">The trail may be untraceable. You can still try to add the next TX ID manually.</div>' +
+        '<input class="fi" id="mixer-input" placeholder="Try next TX ID anyway…" autocomplete="off" spellcheck="false"/>' +
+        '<div class="err" id="mixer-err"></div>' +
+        '<button class="btn" onclick="addMixerHop()" style="margin-top:8px">Try Anyway</button>' +
+      '</div>'
+    );
+    startElectricPulse();
+  } else {
+    var allAddrs = tx.vout.filter(function(o) { return o.scriptpubkey_type !== 'op_return' && o.scriptpubkey_address; }).map(function(o) { return o.scriptpubkey_address; });
+    var receivers = allAddrs.filter(function(a, i, arr) { return senders.indexOf(a) < 0 && arr.indexOf(a) === i; });
+    var walletOpts = senders.map(function(a) { return { addr: a, role: 'Sender' }; }).concat(receivers.map(function(a) { return { addr: a, role: 'Receiver' }; }));
+
+    var wcHTML = walletOpts.map(function(w, wi) {
+      return '<div class="wchoice" id="wc-' + i + '-' + wi + '" onclick="pickWallet(' + i + ',' + wi + ',\'' + w.addr + '\')">' +
+        '<div class="wlbl">' + w.role + '</div>' +
+        '<div class="waddr">' + trim(w.addr, 16) + '</div>' +
+      '</div>';
+    }).join('');
+
+    chain.insertAdjacentHTML('beforeend',
+      '<div class="connector"><div class="cline"></div><div class="cdot"></div><div class="cline"></div></div>' +
+      '<div class="next-box" id="next-' + i + '">' +
+        '<div class="next-title">+ FOLLOW THE TRAIL</div>' +
+        '<div class="next-sub">Which wallet do you want to follow?</div>' +
+        wcHTML +
+        '<div id="suggestions-' + i + '" style="display:none">' +
+          '<div class="divider"></div>' +
+          '<div class="sec-lbl" style="margin-bottom:8px">RECENT TRANSACTIONS — tap to follow</div>' +
+          '<div id="txlist-' + i + '"></div>' +
+          '<div class="divider"></div>' +
+          '<div class="sec-lbl" style="margin-bottom:6px">OR PASTE MANUALLY</div>' +
+          '<input class="fi" id="next-input-' + i + '" placeholder="Next TX ID…" autocomplete="off" spellcheck="false"/>' +
+          '<div class="err" id="next-err-' + i + '"></div>' +
+          '<button class="btn" id="next-btn-' + i + '" onclick="addNextHop(' + i + ')" style="margin-top:8px">Add Next Hop</button>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+} else if (i < hops.length - 1) {
+  chain.insertAdjacentHTML('beforeend', '<div class="connector"><div class="cline"></div><div class="cdot"></div><div class="cline"></div></div>');
+}
+```
+
+});
+
+if (hops.length > 1) document.getElementById(‘sbtn’).style.display = ‘block’;
 }
 
-document.getElementById('tx-input').addEventListener('keydown',e=>{ if(e.key==='Enter') startInvestigation(); });
+function startElectricPulse() {
+setInterval(function() {
+var eb = document.getElementById(‘eb’);
+if (!eb) return;
+eb.src = ‘Electric expand.png’;
+setTimeout(function() {
+var eb2 = document.getElementById(‘eb’);
+if (eb2) eb2.src = ‘Electric normal.png’;
+}, 800);
+}, 3000);
+}
+
+async function pickWallet(hopIdx, walletIdx, addr) {
+document.querySelectorAll(’[id^=“wc-’ + hopIdx + ‘-”]’).forEach(function(el) { el.classList.remove(‘sel’); });
+var wc = document.getElementById(‘wc-’ + hopIdx + ‘-’ + walletIdx);
+if (wc) wc.classList.add(‘sel’);
+
+var sugBox = document.getElementById(‘suggestions-’ + hopIdx);
+var txList = document.getElementById(‘txlist-’ + hopIdx);
+sugBox.style.display = ‘block’;
+txList.innerHTML = ‘<div style="font-family:monospace;font-size:0.6rem;color:#55556a;padding:8px">Loading transactions…</div>’;
+
+bird(‘search’);
+var txs = await getAddrTxs(addr);
+bird(‘normal’);
+
+if (!txs || !txs.length) {
+txList.innerHTML = ‘<div style="font-family:monospace;font-size:0.6rem;color:#55556a;padding:8px">No transactions found.</div>’;
+return;
+}
+
+var recent = txs.slice(0, 5);
+txList.innerHTML = recent.map(function(tx) {
+var time = (tx.status && tx.status.block_time) ? new Date(tx.status.block_time * 1000).toISOString().slice(0, 10) : ‘unconfirmed’;
+var totalOut = tx.vout.reduce(function(s, o) { return s + (o.value || 0); }, 0);
+var outAddrs = tx.vout.map(function(o) { return o.scriptpubkey_address; }).filter(function(a) { return a && a !== addr; });
+var toStr = outAddrs.length ? trim(outAddrs[0], 10) : ‘—’;
+return ‘<div class="tx-suggestion" onclick="selectTx(' + hopIdx + ',\'' + tx.txid + '\')">’ +
+‘<div class="ts-left">’ +
+‘<div class="ts-date">’ + time + ‘</div>’ +
+‘<div class="ts-txid">’ + trim(tx.txid, 14) + ‘</div>’ +
+‘<div class="ts-info">→ ’ + toStr + ’ · ’ + (totalOut / 1e8).toFixed(6) + ’ BTC</div>’ +
+‘</div>’ +
+‘<div class="ts-arr">→</div>’ +
+‘</div>’;
+}).join(’’);
+}
+
+function selectTx(hopIdx, txid) {
+addHopByTxid(txid);
+}
+
+async function addNextHop(i) {
+var inp = document.getElementById(‘next-input-’ + i);
+var txid = inp && inp.value.trim();
+var errEl = document.getElementById(‘next-err-’ + i);
+var btn = document.getElementById(‘next-btn-’ + i);
+if (!txid) { if (errEl) { errEl.textContent = ‘Paste a TX ID first.’; errEl.style.display = ‘block’; } return; }
+if (errEl) errEl.style.display = ‘none’;
+if (btn) btn.disabled = true;
+await addHopByTxid(txid);
+if (btn) btn.disabled = false;
+}
+
+async function addHopByTxid(txid) {
+bird(‘search’);
+try {
+var results = await Promise.all([getTx(txid), getOrdiscan(txid)]);
+hops.push({ txid: txid, tx: results[0], inscriptions: results[1] });
+renderChain();
+setTimeout(function() {
+var last = document.getElementById(‘card-’ + (hops.length - 1));
+if (last) last.scrollIntoView({ behavior: ‘smooth’, block: ‘start’ });
+}, 100);
+} catch (e) {
+alert(e.message);
+}
+bird(‘normal’);
+}
+
+async function addMixerHop() {
+var inp = document.getElementById(‘mixer-input’);
+var txid = inp && inp.value.trim();
+var errEl = document.getElementById(‘mixer-err’);
+if (!txid) { if (errEl) { errEl.textContent = ‘Paste a TX ID.’; errEl.style.display = ‘block’; } return; }
+if (errEl) errEl.style.display = ‘none’;
+await addHopByTxid(txid);
+}
+
+async function startInvestigation() {
+target = document.getElementById(‘target-input’).value.trim();
+var txid = document.getElementById(‘tx-input’).value.trim();
+var errEl = document.getElementById(‘start-err’);
+var stEl = document.getElementById(‘start-st’);
+errEl.style.display = ‘none’;
+if (!txid) { errEl.textContent = ‘Paste a Transaction ID first.’; errEl.style.display = ‘block’; return; }
+document.getElementById(‘start-btn’).disabled = true;
+stEl.textContent = ‘Loading transaction…’;
+bird(‘search’);
+try {
+var results = await Promise.all([getTx(txid), getOrdiscan(txid)]);
+hops = [{ txid: txid, tx: results[0], inscriptions: results[1] }];
+document.getElementById(‘start-form’).style.display = ‘none’;
+renderChain();
+} catch (e) {
+errEl.textContent = e.message;
+errEl.style.display = ‘block’;
+}
+document.getElementById(‘start-btn’).disabled = false;
+stEl.textContent = ‘’;
+bird(‘normal’);
+}
+
+function exportTrail() {
+var txt = ‘ORDITRACK — TRAIL SUMMARY\n’;
+if (target) txt += ’Looking for: ’ + target + ‘\n’;
+txt += ‘\n’;
+hops.forEach(function(hop, i) {
+var tx = hop.tx;
+var senders = tx.vin.map(function(v) { return v.prevout && v.prevout.scriptpubkey_address; }).filter(Boolean);
+txt += ‘HOP ’ + (i + 1) + ‘\nTX: ’ + hop.txid + ‘\nTime: ’ + fmtDate(tx.status && tx.status.block_time) + ‘\nFrom: ’ + senders.join(’, ‘) + ‘\n’;
+tx.vout.forEach(function(o, idx) {
+if (o.scriptpubkey_type === ‘op_return’) return;
+var insc = hop.inscriptions.find(function(ins) { return (ins.owner_output && ins.owner_output.endsWith(’:’ + idx)) || (ins.genesis_output && ins.genesis_output.endsWith(’:’ + idx)); });
+txt += ’  -> ’ + (o.scriptpubkey_address || ‘Unknown’) + ‘: ’ + fmtBtc(o.value) + (insc ? ’ [ORDINAL #’ + insc.inscription_number + ‘]’ : ‘’) + ‘\n’;
+});
+if (tx.fee) txt += ’Fee: ’ + fmtBtc(tx.fee) + ‘\n’;
+txt += ‘\n’;
+});
+var a = document.createElement(‘a’);
+a.href = URL.createObjectURL(new Blob([txt], { type: ‘text/plain’ }));
+a.download = ‘orditrack-trail.txt’;
+a.click();
+}
+
+document.getElementById(‘tx-input’).addEventListener(‘keydown’, function(e) { if (e.key === ‘Enter’) startInvestigation(); });
 </script>
 
 </body>
