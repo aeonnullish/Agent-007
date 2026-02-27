@@ -192,8 +192,10 @@ function fmtBlock(hex) {
   return '#' + parseInt(hex, 16).toLocaleString();
 }
 
+var PROXY = 'https://corsproxy.io/?https%3A%2F%2Ftestnet.opnet.org';
+
 async function rpc(method, params) {
-  var r = await fetch('https://corsproxy.io/?url=https://testnet.opnet.org', {
+  var r = await fetch(PROXY, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({jsonrpc:'2.0', id:1, method: method, params: params || []})
@@ -207,7 +209,7 @@ async function rpc(method, params) {
 async function getTx(txid) {
   // Try opscan API first (more data)
   try {
-    var r = await fetch('https://api.opscan.org/api/transactions/' + txid);
+    var r = await fetch('https://corsproxy.io/?https%3A%2F%2Fapi.opscan.org%2Fapi%2Ftransactions%2F' + txid);
     if (r.ok) {
       var d = await r.json();
       if (d && d.id) return d;
@@ -215,7 +217,7 @@ async function getTx(txid) {
   } catch(e) {}
 
   // Fallback: direct RPC via fetch
-  var r2 = await fetch('https://corsproxy.io/?url=https://testnet.opnet.org', {
+  var r2 = await fetch(PROXY, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({jsonrpc:'2.0', id:1, method:'btc_getTransactionByHash', params:[txid]})
@@ -228,7 +230,7 @@ async function getTx(txid) {
 
 async function getAddrTxs(addr) {
   try {
-    var r = await fetch('https://corsproxy.io/?url=https://testnet.opnet.org', {
+    var r = await fetch(PROXY, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({jsonrpc:'2.0', id:1, method:'btc_getTransactionsByAddress', params:[addr, 10]})
